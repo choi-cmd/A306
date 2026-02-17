@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A306 외부창고 정리</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #e8e8e3;
+    font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  /* ===== 공통 페이지 ===== */
+  .page {
+    background: #fff;
+    width: 1000px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    padding: 24px 28px;
+    page-break-after: always;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  /* ===== 평면도 ===== */
+  .room { border: 3px solid #222; position: relative; width: 100%; background: #fafaf7; margin-top: 24px; }
+  .top-shelf {
+    display: grid; grid-template-columns: 1.3fr 1fr 1.2fr 0.9fr 1.3fr;
+    border-bottom: 2.5px solid #555; background: #eae9e3;
+    position: relative;
+  }
+  .top-shelf::before {
+    content: "베란다";
+    position: absolute;
+    left: -1px; top: -24px;
+    background: #27ae60; color: #fff;
+    font-size: 12px; font-weight: 800;
+    padding: 3px 14px; border-radius: 6px 6px 0 0;
+    letter-spacing: 2px;
+  }
+  .top-shelf .item {
+    text-align: center; padding: 12px 6px; font-size: 12px;
+    border-right: 1px solid #bbb; color: #222; font-weight: 700; line-height: 1.5;
+  }
+  .top-shelf .item:last-child { border-right: none; }
+  .floor { position: relative; width: 100%; height: 660px; }
+  .eq {
+    position: absolute; border: 2px solid #34495e; border-radius: 5px;
+    padding: 4px 3px; text-align: center; font-size: 10px; line-height: 1.3;
+    background: #f0f4f8; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; overflow: hidden;
+  }
+  .eq .name { font-weight: 800; color: #2c3e50; font-size: 11px; }
+  .eq .model { color: #666; font-size: 9.5px; margin-top: 1px; }
+  .eq .detail { color: #555; font-size: 9.5px; margin-top: 1px; }
+
+  .entrance {
+    border-top: 3px solid #222; text-align: center; padding: 8px 0 4px 0;
+  }
+  .entrance span {
+    font-weight: 800; font-size: 17px; color: #c0392b; letter-spacing: 8px;
+  }
+
+  /* ===== 리스트 페이지 ===== */
+  .list-header-small {
+    text-align: center; font-size: 13px; color: #999; margin-bottom: 20px;
+  }
+  .columns {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .col-section {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+  }
+  .col-header {
+    padding: 14px 20px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  .col-header.blue { background: #2980b9; }
+  .col-header.green { background: #27ae60; }
+  .col-body { padding: 18px 20px; }
+
+  .loc-title {
+    font-size: 16px; font-weight: 700; color: #34495e;
+    margin-top: 14px; margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #eee;
+  }
+  .loc-title:first-child { margin-top: 0; }
+
+  .item-row {
+    font-size: 15px; color: #333;
+    padding: 5px 0 5px 18px;
+    line-height: 1.6;
+  }
+  .item-row::before {
+    content: "•";
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .note-box {
+    margin-top: 20px;
+    background: #fef9e7;
+    border: 2px solid #e67e22;
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #e67e22;
+    text-align: center;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; gap: 0; }
+    .page { box-shadow: none; border: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1: A306 평면도 ===== -->
+<div class="page">
+  <div class="page-title">A306</div>
+  <div class="room">
+    <div class="top-shelf">
+      <div class="item">UV DTF B필름</div>
+      <div class="item">마우스패드</div>
+      <div class="item">고리형카드지갑</div>
+      <div class="item">러기지택</div>
+      <div class="item">110V 곡면압착기</div>
+    </div>
+    <div class="floor">
+      <div class="eq" style="left:195px;top:10px;width:692px;height:46px;"><div class="name">스카이 8 in 1 평판압착기</div></div>
+      <div class="eq" style="left:10px;top:65px;width:170px;height:68px;"><div class="name">14oz 스텐텀블러컵 실버</div><div class="detail">RHONG 54.5×54.5x27</div></div>
+      <div class="eq" style="left:255px;top:65px;width:185px;height:50px;"><div class="name">오븐용 클립</div><div class="model">C1CWJ-BK</div></div>
+      <div class="eq" style="left:450px;top:65px;width:245px;height:50px;"><div class="name">24인치 압착기</div><div class="model">SB 6080</div></div>
+      <div class="eq" style="left:254px;top:123px;width:186px;height:67px;"><div class="name">14oz 스텐텀블러컵 화이트</div></div>
+      <div class="eq" style="left:448px;top:123px;width:144px;height:64px;"><div class="name">골드라인,화이트 접시</div></div>
+      <div class="eq" style="left:602px;top:122px;width:131px;height:63px;"><div class="name">20oz 스텐텀블러</div></div>
+      <div class="eq" style="left:10px;top:148px;width:170px;height:75px;"><div class="name">스텐 일자형 양치컵</div><div class="detail">실버</div><div class="detail">LH-9690C</div><div class="model">42x41x47</div></div>
+      <div class="eq" style="left:770px;top:121px;width:115px;height:201px;"><div class="name">SB 4050S</div><div class="detail">A3 압착기 블랙</div></div>
+      <div class="eq" style="left:10px;top:240px;width:120px;height:48px;"><div class="name">14oz 스텐텀블러컵</div><div class="detail">화이트</div></div>
+      <div class="eq" style="left:140px;top:240px;width:66px;height:110px;"><div class="name">14oz 스텐텀블러컵</div><div class="detail">화이트</div></div>
+      <div class="eq" style="left:10px;top:300px;width:110px;height:48px;"><div class="name">22oz 텀블러</div></div>
+      <div class="eq" style="left:395px;top:263px;width:105px;height:74px;"><div class="name">장마우스패드</div><div class="model">SB 683075-3B</div></div>
+      <div class="eq" style="left:510px;top:261px;width:106px;height:55px;"><div class="name">반려동물식기</div><div class="detail">B4CWM</div></div>
+      <div class="eq" style="left:628px;top:209px;width:115px;height:48px;"><div class="name">양치컵 S 화이트(220ml)</div></div>
+      <div class="eq" style="left:630px;top:264px;width:112px;height:53px;"><div class="name">15oz 텀블러</div></div>
+      <div class="eq" style="left:10px;top:360px;width:165px;height:36px;"><div class="name">화이트 M 양치컵 (300ml)</div></div>
+      <div class="eq" style="left:394px;top:342px;width:108px;height:102px;"><div class="name">똑손잡이 머그 유광</div></div>
+      <div class="eq" style="left:511px;top:321px;width:105px;height:42px;"><div class="name">UV DTF A 필름</div></div>
+      <div class="eq" style="left:511px;top:366px;width:106px;height:38px;"><div class="name">L18050</div></div>
+      <div class="eq" style="left:630px;top:323px;width:112px;height:68px;"><div class="name">스텐물병 스텐뚜껑</div><div class="detail">RHONG SB500-05</div></div>
+      <div class="eq" style="left:768px;top:328px;width:118px;height:98px;"><div class="name">40oz</div><div class="detail">텀블러</div></div>
+      <div class="eq" style="left:10px;top:405px;width:200px;height:36px;"><div class="name">Bestsub 실버 M 양치컵 (300ml)</div></div>
+      <div class="eq" style="left:512px;top:408px;width:103px;height:50px;"><div class="name">불투명소주잔</div><div class="detail">BN19 Frosted</div></div>
+      <div class="eq" style="left:631px;top:399px;width:111px;height:59px;"><div class="name">투명소주잔</div><div class="detail">BN20 Clear</div></div>
+      <div class="eq" style="left:10px;top:460px;width:215px;height:42px;"><div class="name">30oz 텀블러</div></div>
+      <div class="eq" style="left:10px;top:510px;width:240px;height:48px;"><div class="name">40oz 텀블러</div></div>
+      <div class="eq" style="left:10px;top:566px;width:260px;height:71px;"><div class="name">(문틈새에 숨겨져있음)11oz용 우드뚜껑</div></div>
+      <div class="eq" style="left:818px;top:443px;width:66px;height:152px;"><div class="name">렉</div></div>
+      <div class="eq" style="left:774px;top:55px;width:114px;height:53px;"><div class="name">스카이 8 in 1</div></div>
+    </div>
+    <div class="entrance">
+      <span>▲ 입 구 ▲</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2: 물품 리스트 ===== -->
+<div class="page">
+  <div class="list-header-small" style="margin-top:10px;">외부창고 정리 구글시트 +</div>
+
+  <div class="columns">
+    <!-- D311 -->
+    <div class="col-section">
+      <div class="col-header blue">D311</div>
+      <div class="col-body">
+        <div class="loc-title">📍 문 좌측</div>
+        <div class="item-row">마우스패드</div>
+        <div class="item-row">다용도수납케이스 (metal box)</div>
+        <div class="item-row">일반카드지갑</div>
+
+        <div class="loc-title">📍 베란다</div>
+        <div class="item-row">스텐물병 우드뚜껑</div>
+      </div>
+    </div>
+
+    <!-- D312 -->
+    <div class="col-section">
+      <div class="col-header green">D312</div>
+      <div class="col-body">
+        <div class="loc-title">📍 문 앞 우측 끝</div>
+        <div class="item-row">SKB35A 풀골드머그 (미러골드머그)</div>
+
+        <div class="loc-title">📍 내부 좌측 화이트머그 앞</div>
+        <div class="item-row">스텐양치컵 실버 S (220ml)</div>
+
+        <div class="loc-title">📍 내부 좌측 화이트머그 뒤</div>
+        <div class="item-row">뚱손잡이머그 무광</div>
+
+        <div class="loc-title">📍 베란다</div>
+        <div class="item-row">100×150 아크릴 프리미엄액자</div>
+        <div class="item-row">100×100 아크릴 프리미엄액자</div>
+        <div class="item-row">110V 와이드히터</div>
+        <div class="item-row">SC-F140</div>
+        <div class="item-row">열쇠고리 — 그린, 네이비, 핑크</div>
+        <div class="item-row">액자마감</div>
+        <div class="item-row">장마우스패드 (NEW) 원단</div>
+        <div class="item-row">시계 부품 1판</div>
+        <div class="item-row">카드지갑(일반) — 10개씩 소분 보관</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
